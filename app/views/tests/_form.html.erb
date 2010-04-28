@@ -1,0 +1,39 @@
+<% form_for @test, :url => url do |f| %>
+    <%= f.error_messages %>
+
+    <p class="input-form">
+      <%= f.label :name, t('name') + ": " %>
+      <%= f.text_field :name %>
+    </p>
+    <p class="input-form">
+      <%= f.label :description, t('description') + ": " %>
+      <%= f.text_area :description %>
+    </p>
+    <p class="input-form">
+      <%= f.label :weight, t('weight') + ": " %>
+      <%= f.select :weight, 1..20 %>
+    </p>
+    <p class="input-form data-select">
+      <%= f.label :active_from, t('active_from') + ": " %>
+      <%= f.datetime_select :active_from %>
+    </p>
+    <p class="input-form data-select">
+      <%= f.label :active_to, t('active_to') + ": " %>
+      <%= f.datetime_select :active_to %>
+    </p>
+    <p class="input-form">
+      <%= f.label :duration, t('duration') + ": " %>
+      <%= f.select :duration, (5..300).step(5) %>
+    </p>
+    <p class="input-form">
+      <%= f.label :enabled, t('enabled') + ": " %>
+      <%= f.check_box :enabled %>
+    </p>
+    <p class="input-form">
+      <%= f.label :can_correct, t('can_correct') + ": " %>
+      <%= f.check_box :can_correct %>
+    </p>
+    <p class="input-form">
+      <%= f.submit t('forward') %>
+    </p>
+<% end %>

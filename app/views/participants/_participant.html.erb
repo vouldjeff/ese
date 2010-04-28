@@ -1,0 +1,6 @@
+<li id="participant_<%= participant.id %>">
+  <h2 class="small"><%= participant.user.username %></h2>
+  <br />
+  <%= link_to_remote t('destroy'), :url => participant_destroy_path(:format => 'js', :id => participant.id), :confirm => t('a_u_s'), :method => :delete, :html => {:class => 'remove-link'}
+  %>
+</li>

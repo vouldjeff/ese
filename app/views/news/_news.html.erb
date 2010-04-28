@@ -1,0 +1,7 @@
+<li id="news_<%= news.id %>">
+<% if permitted_to? :destroy, news %>
+      <%= link_to_remote t('destroy'), :url => news_destroy_path(:format => 'js', :id => news.id, :course_id => news.course.id), :confirm => t('a_u_s'), :method => :delete, :html => {:class => 'remove-link'}
+%>
+  <% end %>
+  <%= textile news.content %>
+</li>

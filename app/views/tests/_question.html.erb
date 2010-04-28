@@ -1,0 +1,30 @@
+<div class="question">
+  <% fields_for "test[question_attributes][]", question do |f| %>
+  <p class="input-form">
+  	<% if question.new_record? %>
+		<%= remove_child 'question' %>
+    <% else %>
+        <%= remove_child 'question', true %>
+        <%= f.hidden_field :id, :index => nil %>
+        <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
+	<% end %>
+  </p>
+	  
+      <p class="input-form">
+        <%= f.label :content, t('content') + ": " %>
+        <%= f.text_area :content, :index => nil, :class => 'question_input' %>
+      </p>
+
+      <p class="input-form">
+        <%= f.label :kind, t('kind') + ": " %>
+        <select name="test[question_attributes][][kind]">
+          <option value="1"<% if question.kind == 1 %> selected<% end %>><%= t('radio') %></option>
+          <option value="0"<% if question.kind == 0 %> selected<% end %>><%= t('checkbox') %></option>
+        </select>
+      </p>
+      <p class="input-form">
+        <%= f.label :weight, t('weight') + ": " %>
+        <%= f.select :weight, 1..20, {}, {:index => nil} %>
+      </p>
+  <% end %>
+</div>

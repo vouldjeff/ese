@@ -1,0 +1,20 @@
+<% title t('login') %>
+
+<p><%= t('d_h_a') %> <%= link_to t('signup'), signup_path %></p>
+
+<% form_for @user_session do |f| %>
+    <%= f.error_messages %>
+    <p class="input-form">
+      <%= f.label :username, t('username') + ": " %>
+      <%= f.text_field :username %>
+    </p>
+    <p class="input-form">
+      <%= f.label :password, t('password') + ": " %>
+      <%= f.password_field :password %>
+    </p>
+    
+    <p><%= f.submit t('login') %></p>
+
+<% end %>
+
+<% #authlogic_facebook_login_button %>

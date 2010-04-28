@@ -1,0 +1,246 @@
+de:
+  first_login: "Sie müssen erst einloggen oder registrieren, damit Sie Zugang zu dieser Seite bekommen!"
+  access_denied: "Eingang verboten!"
+  signup: "Registrieren Sie sich"
+  login: "Eingang"
+  logout: "Ausloggen"
+  tests: "Teste"
+  materials: "Materialien"
+  home: "Anfang"
+  courses: "Lektionen"
+  course: "lektion"
+  material: "material"
+  test: "test"
+  edit: "Verändern"
+  destroy: "Löschen"
+  new_course: "Neue Lektion"
+  edit_course: "Die Lektion verändern"
+  new_material: "Neues Material"
+  edit_material: "Das Material verändern"
+  new_question: "Neue Frage"
+  new_test: "Neue Test"
+  edit_test: "Den Test verändern"
+  new_answer: "Neue Antwort"
+  a_u_s: "Sind Sie sicher?"
+  submit: "Speichern"
+  name: "Name"
+  description: "Beschreibung"
+  content: "Text"
+  language: "Sprache"
+  kind: "Typ"
+  checkbox: "Mehrere richtige Antworte"
+  radio: "Ein richtige Antwort"
+  correct: "Richtig?"
+  time_is: "Jetzt ist: "
+  active_from: "Offen von"
+  active_to: "Offen bis"
+  duration: "Dauer"
+  weight: "Weight"
+  enabled: "Aktiviert"
+  can_correct: "Sollen sie redaktieren?"
+  step1: "Schritt 1"
+  step2: "Schritt 2"
+  step3: "Schritt 3"
+  doit: "Teste dich!"
+  half_time: "Der halbe Zeit ist vorbei!"
+  mone_min_more: "Nur eine Minute bis zum Ende!"
+  your_result: "Ihrer Ergebnis ist: "
+  average_is: "Ihrer Durchschnitt ist: "
+  successfully_added: "Erfolgreich hinzugefügt"
+  successfully_removed: "Erfolgreich gelöscht"
+  participants: "Teilnehmer"
+  roles: "Rollen"
+  username: "Username"
+  email: "E-mail"
+  password: "Passwort"
+  password_again: "wieder den Passwort"
+  a_h_a: "Sie haben einen Account!"
+  d_h_a: "Sie haben keinen Account?"
+  logged_in: "Erfolgreich eigetreten."
+  logged_out: "Erfolgreich ausgegangen."
+  roles_done: "Erfolgreich die Rollen verändert."
+  admin: "Administrator"
+  teacher: "Lehrer"
+  student: "Schüler"
+  registered_s: "Erfolgreich registriert"
+  result: "Ergebnis"
+  test_not_active: "Den Test ist nicht benutzbar"
+  from: "von"
+  first_step_acc: "Ersten Schritt erfolgreich ausgeführt."
+  second_step_acc: "Zweiten Schritt erfolgreich ausgeführt."
+  third_step_acc: "Dritten Schritt erfolgreich ausgeführt."
+  late: "Zeit ist Vorbei. Abgebrochenes Arbeit."
+  made_this_test: "Sie haben diesen Test schon gemacht!"
+  made_this_test_over: "Sie haben diesen Test schon 3 Mal gemacht"
+  logged_in_as: "Sie haben eingetreten als:"
+  one_min_more: "Sie haben noch eine Minute!"
+  has: "Es gibt"
+  answer: "Richtiges Antwort"
+  answers: "Richtige Antworte"
+  question_number: "Frage №"
+  enter: "Besuchen"
+  user_not_exist: "Ein solches Account gibt es nicht!"
+  
+  success_insert: "Erfolgreich erstellt"
+  success_update: "Erfolgreich verändert"
+  success_destroy: "Erfolgreich gelöscht"
+  successfully_updated_user: "Erfolgreich Account verändert."
+
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%e. %b"
+      long: "%e. %B %Y"
+      only_day: "%e"
+
+    day_names: [Sonntag, Montag, Dienstag, Mittwoch, Donnerstag, Freitag, Samstag]
+    abbr_day_names: [So, Mo, Di, Mi, Do, Fr, Sa]
+    month_names: [~, Januar, Februar, März, April, Mai, Juni, Juli, August, September, Oktober, November, Dezember]
+    abbr_month_names: [~, Jan, Feb, Mär, Apr, Mai, Jun, Jul, Aug, Sep, Okt, Nov, Dez]
+    order: [ :day, :month, :year ]
+  
+  time:
+    formats:
+      default: "%A, %d. %B %Y, %H:%M Uhr"
+      short: "%d. %B, %H:%M Uhr"
+      long: "%A, %d. %B %Y, %H:%M Uhr"
+      time: "%H:%M"
+
+    am: "vormittags"
+    pm: "nachmittags"
+      
+  datetime:
+    distance_in_words:
+      half_a_minute: 'eine halbe Minute'
+      less_than_x_seconds:
+        zero: 'weniger als 1 Sekunde'
+        one: 'weniger als 1 Sekunde'
+        other: 'weniger als {{count}} Sekunden'
+      x_seconds:
+        one: '1 Sekunde'
+        other: '{{count}} Sekunden'
+      less_than_x_minutes:
+        zero: 'weniger als 1 Minute'
+        one: 'weniger als eine Minute'
+        other: 'weniger als {{count}} Minuten'
+      x_minutes:
+        one: '1 Minute'
+        other: '{{count}} Minuten'
+      about_x_hours:
+        one: 'etwa 1 Stunde'
+        other: 'etwa {{count}} Stunden'
+      x_days:
+        one: '1 Tag'
+        other: '{{count}} Tage'
+      about_x_months:
+        one: 'etwa 1 Monat'
+        other: 'etwa {{count}} Monate'
+      x_months:
+        one: '1 Monat'
+        other: '{{count}} Monate'
+      about_x_years:
+        one: 'etwa 1 Jahr'
+        other: 'etwa {{count}} Jahre'
+      over_x_years:
+        one: 'mehr als 1 Jahr'
+        other: 'mehr als {{count}} Jahre'
+    prompts:
+      second: "Sekunden"
+      minute: "Minuten"
+      hour: "Stunden"
+      day: "Tag"
+      month: "Monat"
+      year: "Jahr"
+
+  number:
+    format:
+      precision: 2
+      separator: ','
+      delimiter: '.'
+    currency:
+      format:
+        unit: '€'
+        format: '%n%u'
+        separator: 
+        delimiter: 
+        precision: 
+    percentage:
+      format:
+        delimiter: ""
+    precision:
+      format:
+        delimiter: ""
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one:   "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  support:
+    array:
+      words_connector: ", "
+      two_words_connector: " und "
+      last_word_connector: " und "
+
+  activerecord:
+    models:
+      course: "Lektion"
+      material: "Material"
+      test: "Test"
+      question: "Frage"
+    attributes:
+      course:
+        name: "Die Name"
+        description: "Die Beschreibung"
+        lang: "Die Sprache"
+      material:
+        name: "Die Name"
+        content: "Der Inhalt"
+      test:
+        name: "Die Name"
+        description: "Die Beschreibung"
+      question:
+        text: "Der Text"
+        type: "Der Typ"
+  
+    errors:
+      template:
+        header:
+          one:    "Konnte dieses {{model}} Objekt nicht speichern: 1 Fehler."
+          other:  "Konnte dieses {{model}} Objekt nicht speichern: {{count}} Fehler."
+        body: "Bitte überprüfen Sie die folgenden Felder:"
+
+      messages:
+        inclusion: "ist kein gültiger Wert"
+        exclusion: "ist nicht verfügbar"
+        invalid: "ist nicht gültig"
+        confirmation: "stimmt nicht mit der Bestätigung überein"
+        accepted: "muss akzeptiert werden"
+        empty: "muss ausgefüllt werden"
+        blank: "muss ausgefüllt werden"
+        too_long: "ist zu lang (nicht mehr als {{count}} Zeichen)"
+        too_short: "ist zu kurz (nicht weniger als {{count}} Zeichen)"
+        wrong_length: "hat die falsche Länge (muss genau {{count}} Zeichen haben)"
+        taken: "ist bereits vergeben"
+        not_a_number: "ist keine Zahl"
+        greater_than: "muss größer als {{count}} sein"
+        greater_than_or_equal_to: "muss größer oder gleich {{count}} sein"
+        equal_to: "muss genau {{count}} sein"
+        less_than: "muss kleiner als {{count}} sein"
+        less_than_or_equal_to: "muss kleiner oder gleich {{count}} sein"
+        odd: "muss ungerade sein"
+        even: "muss gerade sein"
+        record_invalid: "Gültigkeitsprüfung ist fehlgeschlagen: {{errors}}"
+      models:
+

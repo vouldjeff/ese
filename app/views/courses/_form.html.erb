@@ -1,0 +1,19 @@
+<% form_for @course, :url => url do |f| %>
+    <%= f.error_messages %>
+
+    <p class="input-form">
+      <%= f.label :name, t('name') + ": " %>
+      <%= f.text_field :name %>
+    </p>
+    <p class="input-form">
+      <%= f.label :description, t('description') + ": " %>
+      <%= f.text_area :description %>
+    </p>
+    <p class="input-form">
+      <%= f.label :lang, t('language') + ": " %>
+      <%= f.select :lang, [['Български', 'bg'], ['English', 'en'], ['Français', 'fr'], ['Deutsch', 'de'], ['Русский', 'ru'], ['Español', 'es'], ['Italiano', 'it']] %>
+    </p>
+    <p class="input-form">
+      <%= f.submit t('submit') %>
+    </p>
+<% end %>

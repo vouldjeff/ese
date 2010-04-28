@@ -1,0 +1,24 @@
+<% title t('signup') %>
+
+<p><%= t('a_h_a') %> <%= link_to t('login'), login_path %>.</p>
+
+<% form_for @user, :url => { :action => 'create' } do |f| %>
+    <%= f.error_messages %>
+    <p class="input-form">
+      <%= f.label :username, t('username') + ": " %>
+      <%= f.text_field :username %>
+    </p>
+    <p class="input-form">
+      <%= f.label :email, t('email') + ": " %>
+      <%= f.text_field :email %>
+    </p>
+    <p class="input-form">
+      <%= f.label :password, t('password') + ": " %>
+      <%= f.password_field :password %>
+    </p>
+    <p class="input-form">
+      <%= f.label :password_confirmation, t('password_again') + ": " %>
+      <%= f.password_field :password_confirmation %>
+    </p>
+    <p class="input-form"><%= f.submit "Submit" %></p>
+<% end %>

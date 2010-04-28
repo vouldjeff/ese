@@ -1,0 +1,12 @@
+<% title t('calendar') %>
+
+<% if permitted_to? :new, Event.new %>
+	<% menu link_to(t('new_event'), event_new_path()) %>
+<% end %>
+
+<%= stylesheet_link_tag "event_calendar" %>
+<%= javascript_link_tag "event_calendar" %>
+
+<br />
+
+<%= event_calendar %>

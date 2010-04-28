@@ -1,0 +1,60 @@
+<% title @test.name %>
+<% if permitted_to? :edit, @test %>
+    <% menu link_to(t('edit'), test_other_path(:action => 'edit')) %>
+<% end %>
+<% if permitted_to? :destroy, @test %>
+    <% menu link_to(t('destroy'), test_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+<% end %>
+<% if permitted_to? :doit, @test %>
+    <% menu link_to(t('doit'), test_other_path(:action => 'doit')) %>
+<% end %>
+
+<% if @your_results.count > 0 %>
+    <div class="title-info">
+      <%= t('your_result') %> <span><%= @your_results.last.result %>%</span>
+    </div>
+<% end %>
+
+<div class="content">
+  <%= textile @test.description %>
+</div>
+
+<% if @vls.count > 0 %>
+    <p class="delimiter"><span><%= t('results') %></span></p>
+      
+    <script type='text/javascript' src='http://www.google.com/jsapi'></script>
+    <script type='text/javascript'>
+        google.load('visualization', '1', {packages:['table']});
+        google.setOnLoadCallback(drawTable);
+        function drawTable() {
+            var data = new google.visualization.DataTable();
+            data.addColumn('string', '<%= t('username') %>');
+            data.addColumn('number', '<%= t('result') %>');
+        <% @test.questions.each_with_index do |question, y| %>
+            data.addColumn('number', '<%= y + 1 %>');
+        <% end %>
+            data.addRows(<%= @vls.length %>);
+        <% @vls.each_with_index do |result, i| %>
+            data.setCell(<%= i %>, 0, '<%= result.user.username %>');
+            data.setCell(<%= i %>, 1, <%= result.result %>, '<%= result.result %>%');
+        <% @test.questions.each_with_index do |question, y| %>
+        <% if result.answers["#{question.id}"] != nil and result.answers["#{question.id}"][result.answers["#{question.id}"].length - 1][:service] == "1" and question.num_of_correct >= result.answers["#{question.id}"].length - 1 and result.answers["#{question.id}"].length - 1 > 0 %>
+        <% correct = (question.correct.collect! { |e| e.id } & result.answers["#{question.id}"][0..(result.answers["#{question.id}"].length - 2)].collect { |e| e.to_i }).length %>
+        <% if question.kind == 1 %>
+        <% points = correct * 2 %>
+        <% max = 2 %>
+        <% else %>
+        <% points = correct %>
+        <% max = question.correct.length %>
+        <% end %>
+            data.setCell(<%= i %>, <%= y + 2 %>, <%= points %>, '<%= points %> <%= t('from') %> <%= max %>');
+        <% end %>
+        <% end %>
+        <% end %>
+
+            var table = new google.visualization.Table(document.getElementById('table'));
+            table.draw(data);
+        }
+    </script>
+    <div id="table"></div>
+<% end %>

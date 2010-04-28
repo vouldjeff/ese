@@ -1,0 +1,36 @@
+<% title @test.name %>
+
+<script type="text/javascript">
+    setTimeout("alert('<%= t('half_time') %>')", <%= @test.duration * 60000 / 2 %>);
+    setTimeout("alert('<%= t('one_min_more') %>')", <%= (@test.duration - 1) * 60000 %>);
+    setTimeout("edit_test_<%= @test.id %>.submit()", <%= @test.duration * 60000 %>);
+</script>
+
+<% form_for @test, :url => { :action => 'doit' } do |f| %>
+    <%= f.error_messages %>
+
+    <% @test.questions.sort_by { rand }.each_with_index do |question, index| %>
+        <div class="question">
+          <div class="question_number"><%= t('question_number') + "#{index + 1}" %></div>
+          <h2><%= textile question.content %></h2>
+
+          <div class="num-answers"><%= t('has') + " " + pluralize(question.num_of_correct, t('answer'), t('answers')) %></div>
+
+          <% question.answers.sort_by { rand }.each do |answer| %>
+              <div class="test-answer">
+                <% if question.kind == 1 %>
+                    <input type="radio" name="questions[<%= question.id %>][]" value="<%= answer.id %>"/>
+                <% else %>
+                    <input type="checkbox" name="questions[<%= question.id %>][]" value="<%= answer.id %>"/>
+                <% end %>
+                <%= textile answer.content %>
+              </div>
+          <% end %>
+          <input type="hidden" name="questions[<%= question.id %>][][service]" value="1">
+        </div>
+    <% end %>
+
+    <p>
+      <%= f.submit t('submit') %>
+    </p>
+<% end %>

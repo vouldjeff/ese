@@ -1,0 +1,13 @@
+development:
+  adapter: mysql
+  database: tests
+  pool: 5
+  username: root
+  password: password
+  
+production:
+  adapter: mysql
+  database: tests
+  pool: 5
+  username: root
+  password: password

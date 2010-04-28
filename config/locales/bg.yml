@@ -1,0 +1,354 @@
+bg:
+  first_login: "Трябва първо да влезете или да се регистрирате, за да получите достъп до тази страница!"
+  access_denied: "Нямате права за достъп до тази страница!"
+  signup: "Регистрирайте се"
+  login: "Вход"
+  logout: "Изход"
+  tests: "Тестове"
+  materials: "Материали"
+  home: "Начало"
+  courses: "Курсове"
+  course: "курс"
+  material: "материал"
+  test: "тест"
+  edit: "Промени"
+  destroy: "Изтрий"
+  new_course: "Нов курс"
+  edit_course: "Промяна на курс"
+  new_material: "Нов материал"
+  edit_material: "Промяна на материал"
+  new_question: "Нов въпрос"
+  new_test: "Нов тест"
+  edit_test: "Промяна на тест"
+  new_answer: "Нов отговор"
+  a_u_s: "Сигурен/а ли сте?"
+  submit: "Запази"
+  name: "Име"
+  description: "Описание"
+  content: "Съдържание"
+  language: "Език"
+  kind: "Тип"
+  checkbox: "Няколко верни отговора"
+  radio: "Един верен отговор"
+  correct: "Правилен"
+  time_is: "Часът (по Гринуич) е: "
+  active_from: "Активен от"
+  active_to: "Активен до"
+  duration: "Времетраене"
+  weight: "Тежест"
+  enabled: "Включен"
+  can_correct: "Може да се прави поправка"
+  step1: "Стъпка 1"
+  step2: "Стъпка 2"
+  step3: "Стъпка 3"
+  doit: "Тествай се!"
+  half_time: "Половината време мина!"
+  mone_min_more: "Остава още 1 минута!"
+  your_result: "Вашият резултат е: "
+  average_is: "Средният резултат е: "
+  successfully_added: "Успешно добавихте"
+  successfully_removed: "Успешно премахнахте"
+  participants: "Участници"
+  roles: "Роли"
+  username: "Потребителско име"
+  email: "И-мейл"
+  password: "Парола"
+  password_again: "Парола отново"
+  a_h_a: "Вече имате акаунт?"
+  d_h_a: "Нямате акаунт?"
+  logged_in: "Успешно влязохте."
+  logged_out: "Успешно излязохте."
+  roles_done: "Успешно променихте ролите."
+  admin: "Администратор"
+  teacher: "Учител"
+  student: "Ученик"
+  registered_s: "Успешно се регистрирахте"
+  result: "Резултат"
+  test_not_active: "Тестът не е активен!"
+  from: "от"
+  first_step_acc: "Първата стъпка е успешно изпълнена."
+  second_step_acc: "Втората стъпа е успешно изпълнена."
+  third_step_acc: "Третата стъпка е успешно изпълнена."
+  late: "Времето изтече. Анулирана работа."
+  made_this_test: "Вече сте правил/а този тест."
+  made_this_test_over: "Вече сте правил този тест 3 пъти."
+  logged_in_as: "Влязъл сте като"
+  one_min_more: "Остава ви само една минута!"
+  has: "Има"
+  answer: "верен отговор"
+  answers: "верни отговора"
+  question_number: "Въпрос №"
+  enter: "Посети"
+  user_not_exist: "Потребителят не съществува!"
+  no_course_enrollments: "Не сте записан в нито един курс.<br />Моля обърнете се към преподавател."
+  news: "Новини"
+  single_news: "новина"
+  new_news: "Нова новина"
+  attached_files: "Прикачени файлове"
+  pending_files: "Файлове за качване"
+  attachments: "Файлове за прикачване"
+  new_file: "Нов файл"
+  file_limitations: "Максимално <strong>{{count}}</strong> файла, не по-големи от <strong>{{size}}</strong> MB."
+  wrong_type_of_file: "Грешка: трябва да се избере файл!"
+  remove_attachment: "Премахване на този файл"
+  remove: "Премахване"
+  already_added_participants: "Вече добавени участници"
+  add_new_participant: "Добавяне на нов участник"
+  forward: "Напред"
+  asset: "прикачен файл"
+  wrong_link: "Грешно форматиран линк!"
+  calendar: "Календар"
+  event: "събитие"
+  events: "Събития"
+  new_event: "Ново събитие"
+  edit_event: "Промяна на събитие"
+  all_day: "Цял ден"
+  start_at: "Започва в"
+  end_at: "Приключва в"
+  abbr_hours: "ч."
+  to: "до"
+  abbr_year: "г."
+  see_on_calendar: "Виж на календара"
+  results: "Резултати"
+  progress: "Успех"
+  
+  success_insert: "Успешно създадохте"
+  success_update: "Успешно променихте"
+  success_destroy: "Успешно изтрихте"
+  successfully_updated_user: "Успешно променихте вашия профил."
+  
+  authlogic:
+    error_messages:
+      login_blank: "не може да бъде празен"
+      login_not_found: "не съществува"
+      login_invalid: "трябва да съдържа само букви (латински), цифри и .-_@"
+      consecutive_failed_logins_limit_exceeded: "Привишен лимит на максималният брой опити за вход, потребителят е изключен."
+      email_invalid: "трябва да изглежда като и-мейл"
+      password_blank: "не може да бъде празна"
+      password_invalid: "не е валидна"
+      not_active: "Вашият потребител не е активен."
+      not_confirmed: "Ващият потребител не е потвърден."
+      not_approved: "Вашият потребител не е одобрен."
+      blank_record: "Не може да влзете без запис."
+      no_authentication_details: "Не сте предоставили информация за вход"
+    models:
+      user_session: "Вход"
+    attributes:
+      user_session:
+        username: "Потребителското име"
+        password: "Паролата"
+  
+  date:
+    formats:
+      default: "%d.%m.%Y"
+      short: "%d %b"
+      long: "%d %B %Y"
+ 
+    day_names: [неделя, понеделник, вторник, сряда, четвъртък, петък, събота]
+    standalone_day_names: [Неделя, Понеделник, Вторник, Сряда, Четвъртък, Петък, Събота]
+    abbr_day_names: [Нд, Пн, Вт, Ср, Чт, Пт, Сб]
+ 
+    month_names: [~, Януари, Февруари, Март, Април, Май, Юни, Юли, Август, Септември, Октомври, Ноември, Декември]
+    abbr_month_names: [~, яну., фев., март, апр., май, юни, юли, авг., сеп., окт., ноем., дек.]
+ 
+    order: [ :day, :month, :year ]
+ 
+  time:
+    formats:
+      default: "%a, %d %b %Y, %H:%M:%S %z"
+      short: "%d %b, %H:%M"
+      long: "%d %B %Y, %H:%M"
+ 
+    am: "преди обяд"
+    pm: "следобед"
+ 
+  number:
+    format:
+      separator: "."
+      delimiter: " "
+      precision: 3
+      
+    currency:
+      format:
+        format: "%n %u"
+        unit: "лв."
+        separator: "."
+        delimiter: " "
+        precision: 2
+        
+    percentage:
+      format:
+        delimiter: ""
+        
+    precision:
+      format:
+        delimiter: ""
+        
+    human:
+      format:
+        delimiter: ""
+        precision: 1
+      # Rails 2.2
+      # storage_units: [байт, КБ, МБ, ГБ, ТБ]
+ 
+      # Rails 2.3
+      storage_units:
+        # Storage units output formatting.
+        # %u is the storage unit, %n is the number (default: 2 MB)
+        format: "%n %u"
+        units:
+          byte:
+            one: "байт"
+            few: "байта"
+            many: "байт"
+            other: "байта"
+          kb: "КБ"
+          mb: "МБ"
+          gb: "ГБ"
+          tb: "ТБ"
+ 
+  datetime:
+    distance_in_words:
+      half_a_minute: "по-малко от минута"
+      less_than_x_seconds:
+        one: "по-малко от {{count}} секунди"
+        few: "по-малко от {{count}} секунди"
+        many: "по-малко от {{count}} секунди"
+        other: "по-малко от {{count}} секунди"
+      x_seconds:
+        one: "{{count}} секунда"
+        few: "{{count}} секунди"
+        many: "{{count}} секунди"
+        other: "{{count}} секунди"
+      less_than_x_minutes:
+        one: "по-малко от {{count}} минута"
+        few: "по-малко от {{count}} минути"
+        many: "по-малко от {{count}} минути"
+        other: "по-малко от {{count}} минути"
+      x_minutes:
+        one: "{{count}} минута"
+        few: "{{count}} минути"
+        many: "{{count}} минути"
+        other: "{{count}} минути"
+      about_x_hours:
+        one: "около {{count}} час"
+        few: "около {{count}} часа"
+        many: "около {{count}} часа"
+        other: "около {{count}} часа"
+      x_days:
+        one: "{{count}} ден"
+        few: "{{count}} дни"
+        many: "{{count}} дни"
+        other: "{{count}} дена"
+      about_x_months:
+        one: "около {{count}} месеца"
+        few: "около {{count}} месеца"
+        many: "около {{count}} месеца"
+        other: "около {{count}} месеца"
+      x_months:
+        one: "{{count}} месец"
+        few: "{{count}} месеца"
+        many: "{{count}} месеци"
+        other: "{{count}} месеца"
+      about_x_years:
+        one: "около {{count}} година"
+        few: "около {{count}} години"
+        many: "около {{count}} години"
+        other: "около {{count}} години"
+      over_x_years:
+        one: "над {{count}} година"
+        few: "над {{count}} години"
+        many: "над {{count}} години"
+        other: "над {{count}} години"
+    prompts:
+      year: "Година"
+      month: "Месец"
+      day: "Ден"
+      hour: "Часа"
+      minute: "Минути"
+      second: "Секунди"
+ 
+  activerecord:
+    models:
+      course: "Курс"
+      material: "материал"
+      test: "Тест"
+      question: "Въпрос"
+      user: "Потребител"
+      user_session: "Вход"
+    attributes:
+      course:
+        name: "Името"
+        description: "Описанието"
+        lang: "Езикът"
+      material:
+        name: "Името"
+        content: "Съдаржанието"
+      test:
+        name: "Името"
+        description: "Описанието"
+      question:
+        text: "Текстът"
+        type: "Типът"
+      user:
+        email: "И-мейлът"
+        username: "Потребителското име"
+        password: "Паролата"
+        password_confirmation: "Паролата отново"
+      user_session:
+        username: "Потребителското име"
+        password: "Паролата"
+    
+    errors:
+      template:
+        header:
+          one: "{{model}}: записа неуспешен заради {{count}} грешка"
+          few: "{{model}}: записа неуспешен заради {{count}} грешки"
+          many: "{{model}}: записа неуспешен заради {{count}} грешки"
+          other: "{{model}}: записа неуспешен заради {{count}} грешки"
+ 
+        body: "Възникнаха проблеми при следните полета:"
+ 
+      messages:
+        inclusion: "съдържа непредвидена стойност"
+        exclusion: "съдържа предварително зададена стойност"
+        invalid: "съдържа невярна стойност"
+        confirmation: "не съответства на потвърждението"
+        accepted: "трябва да се потвърди"
+        empty: "не може да е празно"
+        blank: "не може да е без стойност"
+        too_long:
+          one: "е с прекалена дължина (не може да е повече от {{count}} символ)"
+          few: "е с прекалена дължина (не може да е повече от {{count}} символа)"
+          many: "е с прекалена дължина (не може да е повече от {{count}} символи)"
+          other: "е с прекалена дължина (не може да е повече от {{count}} символа)"
+        too_short:
+          one: "е с недостатъчна дължина (трябва да е повече от {{count}} символ)"
+          few: "е с недостатъчна дължина (трябва да е повече от {{count}} символа)"
+          many: "е с недостатъчна дължина (трябва да е повече от {{count}} символи)"
+          other: "е с недостатъчна дължина (трябва да е повече от {{count}} символа)"
+        wrong_length:
+          one: "е с грешна дължина (трябва да е с дължина, равна на {{count}} символ)"
+          few: "е с грешна дължина (трябва да е с дължина, равна на {{count}} символа)"
+          many: "е с грешна дължина (трябва да е с дължина, равна на {{count}} символа)"
+          other: "е с грешна дължина (трябва да е с дължина,  равна на {{count}} символа)"
+        taken: "вече съществува"
+        not_a_number: "не е число"
+        greater_than: "може да е със стойност, по-голяма от {{count}}"
+        greater_than_or_equal_to: "може да е със стойност, по-голяма или равна на {{count}}"
+        equal_to: "може да е единствено със стойност, равна на {{count}}"
+        less_than: "може да е със стойност, по-малка от {{count}}"
+        less_than_or_equal_to: "може да е със стойност, по-голяма или равна на {{count}}"
+        odd: "може да е единствено четно"
+        even: "може да е единствено нечетно"
+ 
+  support:
+    array:
+      # Rails 2.2
+      sentence_connector: "и"
+      skip_last_comma: true
+      
+      # Rails 2.3
+      words_connector: ", "
+      two_words_connector: " и "
+      last_word_connector: " и "

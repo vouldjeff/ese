@@ -1,0 +1,12 @@
+page.visual_effect :puff, :new_news_form
+page.delay 1.0 do
+  page[:new_news_form].reset
+  page.insert_html :top, :news, :partial => 'news', :object => @news
+  page.visual_effect :highlight, "news_#{@news.id}", :duration => 3.0
+  page.delay 3.0 do
+    page.replace_html :flash_notice, flash[:notice]
+    page[:flash_notice].show
+    page.visual_effect :shake, :flash_notice
+    flash.discard
+  end
+end

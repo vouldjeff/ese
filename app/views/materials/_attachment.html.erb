@@ -1,0 +1,6 @@
+<% if !attachment.id.nil? %>
+	<li id='attachment_<%= attachment.id %>'>
+	    <h2><a href='<%= attachment.url %>'><%= attachment.name %></a></h2> <span>(<%= attachment.file_size/1.kilobyte %>KB)</span>
+	    <br /><span><%= link_to_remote t('destroy'), :url => asset_path(:id => attachment), :confirm => t('a_u_s'), :method => :delete, :html => { :title  => t('a_u_s'), :class => "remove_attachment" } %></span>
+	</li>
+<% end %>

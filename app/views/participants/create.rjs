@@ -1,0 +1,9 @@
+page.insert_html :top, :participants, :partial => 'participant', :object => @participant
+page.visual_effect :highlight, "participant_#{@participant.id}", :duration => 3.0
+page[:part_form].reset
+page.delay 3.0 do
+  page.replace_html :flash_notice, flash[:notice]
+  page[:flash_notice].show
+  page.visual_effect :shake, :flash_notice
+  flash.discard
+end

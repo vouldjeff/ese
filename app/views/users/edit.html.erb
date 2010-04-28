@@ -1,0 +1,28 @@
+<% title t('roles') %>
+
+<% if @user == nil %>
+
+    <% form_for :role, :url => { :action => 'edit' } do |f| %>
+        <%= f.error_messages %>
+        <p class="input-form">
+          <%= f.label :username, t('username') + ": " %>
+          <%= text_field_with_auto_complete :role, :username, {}, { :url => users_all_path(:format => 'js', :method => :get, :param_name => 'search') } %>
+        </p>
+        <p class="input-form"><%= f.submit t('forward') %></p>
+    <% end %>
+
+<% else %>
+
+    <% form_for @user, :url => { :action => 'update' } do |f| %>
+        <input type="hidden" name="id" value="<%= @user.id %>">
+        <% Role.all.each do |role| %>
+            <p>
+              <%= check_box_tag 'user[role_ids][]', role.id, @user.roles.include?(role) %> <%= t(role.name) %>
+            </p>
+        <% end %>
+        <p>
+          <%= f.submit t('submit') %>
+        </p>
+    <% end %>
+
+<% end %>

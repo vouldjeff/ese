@@ -1,0 +1,20 @@
+<% title t('participants') %>
+
+<p class="delimiter"><span><%= t('add_new_participant') %></span></p>
+
+<% form_remote_for @participant, :url => participant_create_path(:format => 'js'), :html => { :id => 'part_form' } do |f| %>
+    <p class="input-form">
+      <%= f.label :username, t('username') + ": " %>
+      <%= text_field_with_auto_complete :participant, :username, {}, { :url => users_path(:js, :course_id => params[:course_id]), :method => :get, :param_name => 'search' } %>
+    </p>
+
+    <p class="input-form">
+      <%= f.submit t('submit') %>
+    </p>
+<% end %>
+
+<p class="delimiter"><span><%= t('already_added_participants') %></span></p>
+
+<ul id="participants">
+  <%= render :partial => "participant", :collection => @participants %>
+</ul>

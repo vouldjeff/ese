@@ -1,0 +1,16 @@
+<% title t('courses') %>
+<% if permitted_to? :new, Course.new %>
+  <% menu link_to(t('new_course'), course_new_path) %>
+<% end %>
+
+<% if @courses.count == 0 %>
+    <br /><p><%= t('no_course_enrollments') %></p>
+<% end %>
+
+<% @courses.each do |course| %>
+    <div class="course-list">
+      <h2 class="course-name"><%= link_to course.name, course %></h2>
+
+      <div class="course-description"><%= textile course.description %></div>
+    </div>
+<% end %>

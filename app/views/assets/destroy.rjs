@@ -1,0 +1,14 @@
+page.visual_effect :fade, "attachment_#{@asset_id}"
+page.delay 2.0 do
+  page.replace_html :flash_notice, flash[:notice]
+  page[:flash_notice].show
+  page.visual_effect :shake, :flash_notice
+  flash.discard
+end
+
+# check that a newfile_data id exists
+#page[:newfile_data].disabled = false
+page.assign 'multi_selector.max', @allowed if params[:keep]
+page.select('.newfile_data').each do |element|
+  element.disabled = false
+end

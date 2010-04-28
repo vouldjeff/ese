@@ -1,0 +1,17 @@
+<% title @event.name %>
+<% if permitted_to? :edit, @event %>
+	<% menu link_to(t('edit'), event_other_path(:action => 'edit')) %>
+<% end %>
+<% if permitted_to? :destroy, @event %>
+	<% menu link_to(t('destroy'), event_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+<% end %>
+
+<div class="title-info">
+  <%= t('from') %> <span><%= format_datetime @event.start_at.utc %></span> <%= t('to') %> <span><%= format_datetime @event.end_at.utc %></span>
+  <br />
+  <%= link_to t('see_on_calendar'), calendar_path() %>
+</div>
+
+<div class="content">
+  <%= textile @event.description %>
+</div>

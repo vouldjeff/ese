@@ -1,0 +1,27 @@
+<% form_for @event, :url => url do |f| %>
+    <%= f.error_messages %>
+
+    <p class="input-form">
+      <%= f.label :name, t('name') + ": " %>
+      <%= f.text_field :name %>
+    </p>
+    <p class="input-form">
+      <%= f.label :description, t('description') + ": " %>
+      <%= f.text_area :description %>
+    </p>
+    <p class="input-form data-select">
+      <%= f.label :start_at, t('start_at') + ": " %>
+      <%= f.datetime_select :start_at %>
+    </p>
+    <p class="input-form data-select">
+      <%= f.label :end_at, t('end_at') + ": " %>
+      <%= f.datetime_select :end_at %>
+    </p>
+  	<p class="input-form">
+      <%= f.label :all_day, t('all_day') + ": " %>
+      <%= f.check_box :all_day %>
+    </p>
+    <p class="input-form">
+      <%= f.submit t('submit') %>
+    </p>
+<% end %>

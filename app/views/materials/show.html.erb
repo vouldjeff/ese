@@ -1,0 +1,18 @@
+<% title @material.name %>
+<% if permitted_to? :edit, @material %>
+	<% menu link_to(t('edit'), material_other_path(:action => 'edit')) %>
+<% end %>
+<% if permitted_to? :destroy, @material %>
+	<% menu link_to(t('destroy'), material_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+<% end %>
+
+<div class="content">
+  <%= textile @material.content %>
+</div>
+
+<% if @material.assets.count > 0 %>
+  <p class="delimiter"><span><%= t('attached_files') %></span></p>
+	<div class="attachment_list">
+		<%= render :partial => "attachment", :collection => @material.assets, :locals => {:keep => false} %>
+	</div>
+<% end %>

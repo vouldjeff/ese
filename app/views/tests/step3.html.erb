@@ -1,0 +1,19 @@
+<% title t('edit_test') %>
+
+<% form_for @test, :url => { :action => "step3_update" } do |f| %>
+    <p class="input-form">
+      <% @test.questions.each do |question| %>
+        <div class="answers">
+          <div id="answers_<%= question.id %>">
+            <%= textile question.content %>
+            <%= render :partial => "answer", :collection => question.answers %>
+          </div>
+          <%= add_new_child(t('new_answer'), "answers_#{question.id}", 'answer', Answer.new(:question => question)) %>
+        </div>
+        <br />
+    <% end %>
+    </p>
+    <p class="input-form">
+      <%= f.submit t('submit') %>
+    </p>
+<% end %>
