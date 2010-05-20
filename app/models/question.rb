@@ -6,6 +6,8 @@ class Question < ActiveRecord::Base
   after_update :save_answers
   validates_associated :answers
 
+  attr_accessible :content, :kind, :answer_attributes
+
   def answer_attributes=(answer_attributes)
     answer_attributes.each do |attributes|
       if attributes[:id].blank?
@@ -18,12 +20,16 @@ class Question < ActiveRecord::Base
     end
   end
 
-  def num_of_correct
-    Answer.count(:all, :conditions => { :question_id => id, :correct => true })
+  def number_of_correct_answers
+    correct_answers.length
   end
 
-  def correct
-    Answer.find(:all, :conditions => { :question_id => id, :correct => true })
+  def correct_answers
+    @correct unless @correct.nil?
+    @correct = []
+    answers.each{ |e| @correct << e if e.correct? }
+    
+    @correct
   end
 
   def save_answers

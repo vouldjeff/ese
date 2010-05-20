@@ -38,7 +38,8 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.find(:all, :select => "username, id", :include => [:participants], :conditions => ['username LIKE ? and (participants.course_id != ? or participants.course_id is NULL)', "%#{params[:search]}%", Course.find(params[:course_id]).id])
+    # TODO: not show old participants
+    @users = User.find(:all, :select => "username, id", :include => [:participants], :conditions => ['username LIKE ?', "%#{params[:search]}%"])
   end
 
   def index2

@@ -1,5 +1,6 @@
 class EventsController < ApplicationController
   before_filter :login_required
+  before_filter :load_course_object
   before_filter :change_language
   filter_resource_access
 
@@ -36,10 +37,5 @@ class EventsController < ApplicationController
     flash[:notice] = t('success_destroy') + " " + t('event') + "."
 
     redirect_to course_view_path(@event.course)
-  end
-
-  def change_language
-    lang = Course.find(params[:course_id]).lang
-    I18n.locale = lang
   end
 end

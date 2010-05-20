@@ -15,6 +15,8 @@ Rails::Initializer.run do |config|
 
   #config.gem "ruby-openid", :lib => "openid"
   config.gem "authlogic"
+  config.gem "select_with_include"
+  config.gem 'bullet', :source => 'http://gemcutter.org'
   #config.gem "authlogic-oid", :lib => "authlogic_openid"
   #config.gem "facebooker"
 

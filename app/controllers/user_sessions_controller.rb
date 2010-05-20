@@ -5,6 +5,7 @@ class UserSessionsController < ApplicationController
 
   def create
     @user_session = UserSession.new(params[:user_session])
+    
     @user_session.save do |result|
       if result
         flash[:notice] = t('logged_in')
@@ -18,6 +19,7 @@ class UserSessionsController < ApplicationController
   def destroy
     @user_session = UserSession.find
     @user_session.destroy
+
     flash[:notice] = t('logged_out')
     redirect_to root_url
   end

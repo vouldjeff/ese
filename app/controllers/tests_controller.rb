@@ -1,16 +1,25 @@
 class TestsController < ApplicationController
   before_filter :login_required
+  before_filter :load_course_object
   before_filter :change_language
-  filter_resource_access
+  filter_access_to :all, :attribute_check => true
 
   def show
-    @your_results = Result.find(:all, :conditions => { :test_id => @test.id, :user_id => current_user.id })
-    
+
+    @test = Test.find(params[:id], :joins =>
+            ["LEFT OUTER JOIN results ON results.test_id = tests.id",
+            "LEFT OUTER JOIN questions ON questions.test_id = tests.id",
+            "LEFT OUTER JOIN answers ON answers.question_id = questions.id",
+            "LEFT OUTER JOIN courses ON courses.id = tests.id"]
+    )
+
     @vls = Array.new
-    if @template.is_teacher? and @test.results.count > 0
-      @vls = @test.results
-    elsif @your_results.count > 0
-      @vls = @your_results
+    unless @test.results.nil?
+      if @template.is_teacher?
+        @vls = @test.results.to_a
+      elsif !@test.results.to_a.collect{ |e| e if e.user_id = current_user }.nil?
+        @vls = @test.results.to_a.collect{ |e| e if e.user_id = current_user }
+      end
     end
   end
 
@@ -71,7 +80,7 @@ class TestsController < ApplicationController
   end
 
   def doit
-  	#time checking
+    #time checking
     unless (@test.active_from.utc <= Time.now.utc and Time.now.utc <= @test.active_to.utc - 60) or @test.enabled != true
       flash[:error] = t('test_not_active')
       if params[:questions] != nil
@@ -83,7 +92,7 @@ class TestsController < ApplicationController
       redirect_to test_view_path()
       return
     end
-	
+
     #already made check
     if Result.find(:all, :conditions => { :test_id => @test.id, :user_id => current_user.id }).length > 0
       if @test.can_correct != true
@@ -95,7 +104,7 @@ class TestsController < ApplicationController
       end
     end
 
-	#calculate end time for session or calculate result
+    #calculate end time for session or calculate result
     if params[:questions] == nil
       session["start_#{@test.id}"] = Time.now.utc
       return
@@ -117,10 +126,5 @@ class TestsController < ApplicationController
     end
 
     redirect_to test_view_path()
-  end
-
-  def change_language
-    lang = Course.find(params[:course_id]).lang
-    I18n.locale = lang
   end
 end

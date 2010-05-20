@@ -3,6 +3,7 @@ class CreateRoles < ActiveRecord::Migration
     create_table :roles do |t|
       t.string :name
     end
+
     Role.create :name => "admin"
     Role.create :name => "teacher"
     Role.create :name => "student"

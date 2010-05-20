@@ -4,7 +4,7 @@ class Course < ActiveRecord::Base
   has_many :news, :dependent => :destroy
   has_many :participants, :dependent => :destroy
   has_many :users, :through => :participants
-  has_many :events
+  has_many :events, :dependent => :destroy
 
   attr_accessible :name, :description, :lang
 

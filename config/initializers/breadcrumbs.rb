@@ -1,5 +1,5 @@
 Breadcrumb.configure do
-  # Specify name, link title and the URL to link to
+  
   crumb :root, I18n.t('courses'), :courses_path
   crumb :login, I18n.t('courses'), :login_path
 

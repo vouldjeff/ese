@@ -1,15 +1,16 @@
 class ParticipantsController < ApplicationController
   before_filter :login_required
+  before_filter :load_course_object
   before_filter :change_language
   filter_resource_access
 
   def new
-    @participants = Participant.all(:all, :conditions => { :course_id => Course.find(params[:course_id]).id })
+    @participants = Participant.find(:all, :include => [:user], :conditions => { :course_id => @course.id })
   end
 
   def create
-    @participant.course = Course.find(params[:course_id])
-    if User.find_by_username(params[:participant][:username]) != nil
+    @participant.course = @course
+    if User.count(:conditions => { :username => params[:participant][:username] }) == 1
       if @participant.save
         flash[:notice] = t('successfully_added') + " #{@participant.username}!"
         respond_to do |format|
@@ -30,10 +31,5 @@ class ParticipantsController < ApplicationController
       format.html { redirect_to participants_path() }
       format.js
     end
-  end
-
-  def change_language
-    lang = Course.find(params[:course_id]).lang
-    I18n.locale = lang
   end
 end

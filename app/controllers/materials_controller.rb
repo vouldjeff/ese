@@ -1,5 +1,6 @@
 class MaterialsController < ApplicationController
   before_filter :login_required
+  before_filter :load_course_object
   before_filter :change_language
   filter_resource_access
 
@@ -12,7 +13,7 @@ class MaterialsController < ApplicationController
   end
 
   def edit
-    @allowed = Material::Max_Attachments - @material.assets.count
+    @allowed = Material::Max_Attachments - @material.assets.length
   end
 
   def create
@@ -45,18 +46,12 @@ class MaterialsController < ApplicationController
     redirect_to course_view_path(@material.course)
   end
 
-  def change_language
-    lang = Course.find(params[:course_id]).lang
-    I18n.locale = lang
-  end
-
-  protected
-
+  private
   def process_file_uploads(material)
     i = 0
     return if params[:attachment].nil?
-    while params[:attachment]['file_'+i.to_s] != "" && !params[:attachment]['file_'+i.to_s].nil?
-      material.assets.build(:data => params[:attachment]['file_'+i.to_s])
+    while params[:attachment]['file_' + i.to_s] != "" && !params[:attachment]['file_' + i.to_s].nil?
+      material.assets.build(:data => params[:attachment]['file_' + i.to_s])
       i += 1
     end
   end

@@ -111,6 +111,9 @@ bg:
   see_on_calendar: "Виж на календара"
   results: "Резултати"
   progress: "Успех"
+
+  too_many_assets: "Твърде много прикачени файлове- максимум {{count}}"
+  too_big: "{{name}} е твърде голям - максимум {{max}}MB"
   
   success_insert: "Успешно създадохте"
   success_update: "Успешно променихте"

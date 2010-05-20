@@ -1,5 +1,4 @@
 class User < ActiveRecord::Base
-
   has_many :results, :dependent => :destroy
   has_many :assignments, :dependent => :destroy
   has_many :roles, :through => :assignments
@@ -11,9 +10,10 @@ class User < ActiveRecord::Base
   acts_as_authentic
 
   def role_symbols
-    roles.map do |role|
-      role.name.underscore.to_sym
-    end
+    @role_symbols ||= roles.map{ |r| r.name.underscore.to_sym }
   end
 
+  def is_techer?
+   @is_teacher ||= !role_symbols().index(:teacher).nil?
+  end
 end
