@@ -1,0 +1,89 @@
+body {background-color: #FFF; font-family: "Helvetica Neue", Arial, sans-serif; font-size: 12px; margin: 0px; padding: 0px; background: url(../images/bg.gif) repeat-x; color: #333}
+a img {border: none}
+.latex {display: inline; overflow: hidden; padding: 0 5px}
+.content {margin-top: 10px}
+a:link, a:visited, a:active {color: #2266BB; text-decoration: none}
+a:hover {text-decoration: underline}
+#container {width: 960px; margin: 0 auto; padding: 0px; padding-bottom: 30px}
+#inner {padding: 0 10px}
+#header {height: 24px; width: 100%; overflow: hidden; background: url(../images/logo.gif) no-repeat 1px 5px; padding-top: 9px; margin-bottom: 10px; color: #2266bb}
+#crumbs {margin-left: 80px; margin-top: 4px; float: left; font-size: 13px}
+#crumbs a:hover {color:#222; text-decoration: none}
+#crumbs span {color: #bbccdd}
+#flashes {float: right; height: 33px; margin-top: -43px; margin-right: 20px; position: relative; right: 0; text-align: right; top: 0}
+#flash_notice, #flash_error {border: solid 3px #bbccdd; display: inline-block; padding: 9px 10px; padding-top: 10px; border-top: 0px; border-bottom: 0px}
+#flash_notice {background-color: #CFC}
+#flash_error {background-color: #FCC}
+.delimiter {background: url(../images/splitter-bg.png) repeat-x scroll left center}
+.delimiter span {background: #fff; color: #888; text-transform: uppercase; font-size: 11px; padding-right: 5px; font-weight: bold}
+.del-small {margin-right: 200px}
+.del-small span {font-weight: normal !important}
+.left-column {float: left; width: 200px; margin-right: 17px; padding-right: 20px; border-right: 1px solid #ddd; padding-bottom: 20px}
+.left-column ul {margin: 0px; padding-left: 15px}
+.left-column h2 {font-size: 15px; font-weight: normal}
+.main-column {float: left; width: 700px}
+p {}
+textarea, input, select {border: 1px solid #ddd; padding: 3px; color: #555}
+select {color: #000}
+input[type="text"], input[type="password"], textarea, select {width: 750px; display: block; float: left}
+.data-select select {width: auto; float: center; display: inline}
+.input-form {clear: both; overflow: hidden}
+.error-field input, .error-field textarea, .error-field select {border: 1px solid #ff0000}
+.question input[type="text"], .question textarea, .question select {width: 700px}
+.answer input[type="text"], .answer textarea, .answer select {width: 650px}
+input[type="submit"], input[type="button"] {background: #eee; padding: 3px 10px}
+input[type="submit"]:active, input[type="button"]:active {border-top: 2px solid #2266bb; border-left: 2px solid #2266bb}
+textarea:hover, textarea:focus, input:hover, input:focus {border: 1px solid #2266bb; color: #000}
+label {width: 150px; float: left; margin-top: 4px}
+.label-margin {margin-left: 150px}
+.new-news-content {width: 500px; height: 150px}
+.new-news {margin: 10px 0; border-bottom: 1px solid #ddd}
+#news {margin: 0px; padding: 0px}
+#news li {list-style: none; margin: 10px 0 20px 0; border-bottom: 1px solid #ddd; padding: 0px; padding-bottom: 10px}
+.clear {clear: both}
+#errorExplanation {width: 400px; border: 2px solid #CF0000; padding: 0px; padding-bottom: 12px; margin: 20px 0; background-color: #f0f0f0}
+#errorExplanation h2 {display: block !important; text-align: left; font-weight: bold; padding: 5px 5px 5px 15px; font-size: 12px; margin: 0px; background-color: #c00; color: #fff}
+#errorExplanation p {color: #333; margin-bottom: 0; padding: 8px}
+#errorExplanation ul {margin: 2px 24px}
+#errorExplanation ul li {font-size: 12px; list-style: disc}
+#controls {float: right}
+#controls-arrow {background: url(../images/arrow.gif) no-repeat 0 1px; display: block; height: 14px; width: 16px; outline: none}
+#controls-arrow:hover {background-image: url(../images/arrow-hover.gif)}
+#controls-menu {position: absolute; z-index: 10000000; overflow: hidden; width: 150px; border: 3px solid #bbccdd; border-top: 0px; border-bottom: 2px solid #bbccdd; margin-top: 11px; margin-left: -138px; padding: 0px; color: #333; background: #fff}
+#controls-menu ul {padding: 0px; margin: 0px}
+#controls-menu ul li {margin: 0 -5px; padding: 5px 15px 5px 15px; border-bottom: 1px solid #bbccdd}
+#controls-menu ul li:hover {color:#222; border-color: #EEF4FF}
+#controls-menu ul li a:hover {color: #333; text-decoration: none}
+.question_input {height: 150px}
+.main-actions {margin: 0px 0 30px 0}
+.sub-actions {margin: 0px 0 10px 0}
+h1, h2 {margin-bottom: 0px; margin-top: 0px}
+h1 {font-size: 32px}
+h2 {font-size: 24px}
+h1, h2 {font-family: Georgia, serif; text-shadow:0 1px 1px rgba(64, 64, 64, 0.13); font-weight: normal; color:#222}
+h1 a, h2 a {display: inline; color: #2266bb; font-family: Georgia, serif; text-shadow:0 1px 1px rgba(64, 64, 64, 0.13); font-weight: normal}
+h1 a:hover, h2 a:hover {color:#222; background:#EEF4FF; text-decoration: none}
+.red-info {color: red}
+.question, .answers, .answer {margin: 10px; border: 1px solid #eee; padding: 10px}
+.answers {border: 2px solid #eee}
+.test-answer p {display: inline}
+.num-answers {}
+.question_number {float: right; font-weight: bold}
+.num-answers {float: right}
+.course-list {margin-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #bbccdd; overflow: hidden}
+.course-description {}
+h3.parent-title {margin-bottom: 5px; line-height: 1.3pt}
+input#user_openid_identifier, input#user_session_openid_identifier {background: url(http://openid.net/images/login-bg.gif) no-repeat; background-color: #fff; background-position: 0 50%; color: #000; padding-left: 18px}
+.attachment_list h2, h2.small {font-size: 15px}
+.attachment_list span, .more-info {color: #888; font-size: 10px}
+.more-info {display: block; margin-top: -10px}
+.attachment_list span a, #pending_files li a span {font-size: 11px}
+#pending_files li a span {color: #2266BB !important}
+.attachment_list span a:hover, #pending_files li a span:hover, .remove-link:hover {color:#222; background:#EEF4FF; text-decoration: none; font-weight: bold; font-size: 12px}
+.attachment_list #pending_files {list-style: none; padding: 0}
+.attachment_list li {list-style: none; padding: 0 0 0.5em 21px; background: url('/images/attachment.png') no-repeat 0 2px}
+.attachment_list li #remove {margin-left: 1em}
+#participants li {padding-bottom: 10px}
+.title-info {color: #888}
+.title-info span {font-weight: bold; color: #333}
+#table {padding: 10px 0}

@@ -1,0 +1,25 @@
+--- 
+javascripts: 
+- base:
+  - prototype
+  - effects
+  - application
+  - clusterer
+  - multifile
+  - dragdrop
+  - controls
+- cufon:
+  - cufon-yui
+  - calibri
+- maps:
+  - wms-gs
+  - ym4r-gm
+  - geoRssOverlay
+  - markerGroup
+- calendar:
+  - event_calendar
+stylesheets: 
+- base: 
+  - application
+- calendar:
+  - event_calendar
