@@ -1,10 +1,8 @@
 class NewsController < ApplicationController
   before_filter :login_required
-  #filter_resource_access
+  filter_resource_access
 
   def create
-    @news = News.new(params[:news])
-
     @news.course = Course.find(params[:course_id])
     @news.user = current_user
 
@@ -20,7 +18,6 @@ class NewsController < ApplicationController
   end
 
   def destroy
-    @news = News.find(params[:id])
     @news.destroy
     flash[:notice] = t('success_destroy') + " " + t('single_news') + "."
 

@@ -2,7 +2,7 @@ class Participant < ActiveRecord::Base
   belongs_to :course
   belongs_to :user
 
-  attr_accessible nil
+  attr_accessible :username
 
   validates_uniqueness_of :user_id, :scope => :course_id
   validates_presence_of :user_id

@@ -1,6 +1,6 @@
 <% title @course.name %>
 <% if permitted_to? :edit, @course %>
-    <% nav icon_link(t('participants'), participants_path(:course_id => @course.id), 'participants') %>
+    <% nav icon_link(t('participants'), participants_path(:course_id => @course), 'participants') %>
     <% nav icon_link(t('edit'), course_other_path(:action => 'edit'), 'edit') %>
 <% end %>
 <% if permitted_to? :destroy, @course %>
