@@ -1,9 +1,9 @@
 <% title @material.name %>
 <% if permitted_to? :edit, @material %>
-	<% menu link_to(t('edit'), material_other_path(:action => 'edit')) %>
+	<% nav icon_link(t('edit'), material_other_path(:action => 'edit'), 'edit') %>
 <% end %>
 <% if permitted_to? :destroy, @material %>
-	<% menu link_to(t('destroy'), material_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+	<% nav icon_link(t('destroy'), material_other_path(:action => 'destroy'), 'destroy', t('a_u_s')) %>
 <% end %>
 
 <div class="content">

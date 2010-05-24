@@ -2,9 +2,12 @@ class Answer < ActiveRecord::Base
   belongs_to :question
 
   attr_accessor :should_destroy
-  attr_accessible :correct, :content
 
   def should_destroy?
     should_destroy.to_i == 1
+  end
+
+  def kind
+    @kind ||= question.kind
   end
 end

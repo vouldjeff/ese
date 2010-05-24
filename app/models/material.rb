@@ -18,9 +18,6 @@ class Material < ActiveRecord::Base
 
   def validate_attachments
     errors.add_to_base(I18n.t('too_many_assets', :count => Max_Attachments)) if assets.length > Max_Attachments
-    begin
-      assets.each {|a| errors.add_to_base(I18n.t('too_big', :name => a.name, :max => Max_Attachment_Size/1.megabyte)) if a.file_size > Max_Attachment_Size}
-    rescue NoMethodError
-    end
+    assets.each {|a| errors.add_to_base(I18n.t('too_big', :name => a.name, :max => Max_Attachment_Size/1.megabyte)) if a.file_size > Max_Attachment_Size}
    end
 end

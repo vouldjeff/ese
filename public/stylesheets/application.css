@@ -25,6 +25,7 @@ a img {
 a:link, a:visited, a:active {
     color: #2266BB;
     text-decoration: none;
+    outline: none;
 }
 
 a:hover {
@@ -57,6 +58,7 @@ a:hover {
     margin-top: 4px;
     float: left;
 	font-size: 13px;
+    max-widyj: 800px;
 }
 
 #crumbs a:hover {
@@ -69,23 +71,16 @@ a:hover {
 }
 
 #flashes {
-	float: right;
-	height: 33px;
-	margin-top: -43px;
-	margin-right: 20px;
-	position: relative;
-	right: 0;
-	text-align: right;
-	top: 0;
 }
 
 #flash_notice, #flash_error {
 	border: solid 3px #bbccdd;
-    display: inline-block;
+    display: block;
     padding: 9px 10px;
     padding-top: 10px;
-    border-top: 0px;
-    border-bottom: 0px;
+    position: fixed;
+    top: 31px;
+    right: 40px;
 }
 
 #flash_notice {
@@ -447,8 +442,6 @@ input#user_openid_identifier, input#user_session_openid_identifier {
 	color:#222;
 	background:#EEF4FF;
 	text-decoration: none;
-	font-weight: bold;
-	font-size: 12px;
 }
 
 .attachment_list #pending_files {
@@ -482,4 +475,53 @@ input#user_openid_identifier, input#user_session_openid_identifier {
 
 #table {
   padding: 10px 0;
+}
+
+.more-links-container {
+    clear: both;
+    overflow: hidden;
+}
+
+.more-links {
+    float: right;
+    text-align: right;
+}
+
+.icon-link span {
+    background: #fff;
+    padding-left: 3px;
+}
+
+.icon-link span:hover {
+	color:#222;
+	background:#EEF4FF;
+}
+
+.more-links .icon-link {
+    margin-left: 10px;
+}
+
+.icon-link {
+    background: url('/images/icons.png') no-repeat;
+    height: 16px;
+    padding-left: 16px;
+}
+
+.icon-sprite-calendar {
+    background-position: -64px 0;
+}
+
+.icon-sprite-new {
+}
+
+.icon-sprite-destroy {
+    background-position: -32px 0;
+}
+
+.icon-sprite-edit {
+    background-position: -48px 0;
+}
+
+.icon-sprite-participants {
+    background-position: -80px 0;
 }

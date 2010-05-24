@@ -6,7 +6,7 @@ class Question < ActiveRecord::Base
   after_update :save_answers
   validates_associated :answers
 
-  attr_accessible :content, :kind, :answer_attributes
+  attr_accessible :content, :kind, :answer_attributes, :weight
 
   def answer_attributes=(answer_attributes)
     answer_attributes.each do |attributes|

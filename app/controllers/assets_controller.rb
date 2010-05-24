@@ -18,6 +18,6 @@ class AssetsController < ApplicationController
 
   private
   def load_asset_object
-    @asset = Asset.find(params[:id], :include => [:course])
+    @asset = Asset.find(params[:id])
   end
 end

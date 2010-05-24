@@ -4,6 +4,6 @@ page[:part_form].reset
 page.delay 3.0 do
   page.replace_html :flash_notice, flash[:notice]
   page[:flash_notice].show
-  page.visual_effect :shake, :flash_notice
+  page.visual_effect :highlight, :flash_notice
   flash.discard
 end

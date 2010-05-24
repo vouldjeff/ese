@@ -1,6 +1,6 @@
 class NewsController < ApplicationController
   before_filter :login_required
-  filter_resource_access
+  #filter_resource_access
 
   def create
     @news = News.new(params[:news])

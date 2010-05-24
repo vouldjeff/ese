@@ -1,28 +1,21 @@
 <% title @course.name %>
-
-<% if permitted_to? :show, @course %>
-	<% menu link_to(t('calendar'), calendar_path(:course_id => @course)) %>
-<% end %>
-
 <% if permitted_to? :edit, @course %>
-	<% menu link_to(t('participants'), participants_path(:course_id => @course.id)) %>
-<% end %>
-<% if permitted_to? :edit, @course %>
- 	<% menu link_to(t('edit'), course_other_path(@course, :action => 'edit')) %>
+    <% nav icon_link(t('participants'), participants_path(:course_id => @course.id), 'participants') %>
+    <% nav icon_link(t('edit'), course_other_path(:action => 'edit'), 'edit') %>
 <% end %>
 <% if permitted_to? :destroy, @course %>
- 	<% menu link_to(t('destroy'), course_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+    <% nav icon_link(t('destroy'), course_other_path(:action => 'destroy'), 'destroy', t('a_u_s')) %>
 <% end %>
 <% if permitted_to? :edit, @course %>
-	<% menu link_to(t('new_material'), material_new_path(:course_id => @course)) %>
+    <% nav icon_link(t('new_material'), material_new_path(:course_id => @course), 'new') %>
+    <% nav icon_link(t('new_test'), test_new_path(:course_id => @course), 'new') %>
+    <% nav icon_link(t('new_event'), event_new_path(:course_id => @course), 'new') %>
+    <% nav link_to_function("<span>" + t('new_news') + "</span>", "$('controls-menu').hide(); Effect.toggle('new_news_form', 'appear')", :class => 'icon-link icon-sprite-new') %>
 <% end %>
-<% if permitted_to? :edit, @course %>
-	<% menu link_to(t('new_test'), test_new_path(:course_id => @course)) %>
+<% if permitted_to? :show, @course %>
+    <% nav icon_link(t('calendar'), calendar_path(:course_id => @course), 'calendar') %>
 <% end %>
-<% if permitted_to? :edit, @course %>
-	<% menu link_to(t('new_event'), event_new_path(:course_id => @course)) %>
-<% end %>
-<p style="clear: both;"></p>
+
 <div class="left-column">
 	<p class="delimiter"><span><%= t 'materials' %></span></p>
 	<ul>
@@ -47,7 +40,6 @@
 	<p class="delimiter"><span><%= t 'news' %></span></p>
 	
 	<% if permitted_to? :edit, @course %>
-          <% menu link_to_function(t('new_news'), "$('controls-menu').hide(); Effect.toggle('new_news_form', 'appear')") %>
           <% form_remote_for News.new, :html => {:id => 'new_news_form', :style => 'display: none;', :class => 'new-news'}, :url => news_create_path(:course_id => @course) do |fn| %>
               <p class="input-form">
                 <%= fn.label t('content') + ": " %>

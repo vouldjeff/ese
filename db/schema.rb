@@ -9,13 +9,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20100316205904) do
+ActiveRecord::Schema.define(:version => 20100316206000) do
 
   create_table "answers", :force => true do |t|
     t.text    "content"
     t.boolean "correct"
     t.integer "question_id"
   end
+
+  add_index "answers", ["question_id"], :name => "index_answers_on_question_id"
 
   create_table "assets", :force => true do |t|
     t.string   "data_file_name"
@@ -34,6 +36,9 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.integer "role_id"
   end
 
+  add_index "assignments", ["role_id"], :name => "index_assignments_on_role_id"
+  add_index "assignments", ["user_id"], :name => "index_assignments_on_user_id"
+
   create_table "courses", :force => true do |t|
     t.string "name"
     t.text   "description"
@@ -51,16 +56,23 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.text     "description"
   end
 
+  add_index "events", ["course_id"], :name => "index_events_on_course_id"
+
   create_table "links", :force => true do |t|
     t.integer "tag_id"
     t.integer "material_id"
   end
+
+  add_index "links", ["material_id"], :name => "index_links_on_material_id"
+  add_index "links", ["tag_id"], :name => "index_links_on_tag_id"
 
   create_table "materials", :force => true do |t|
     t.string  "name"
     t.text    "content"
     t.integer "course_id"
   end
+
+  add_index "materials", ["course_id"], :name => "index_materials_on_course_id"
 
   create_table "news", :force => true do |t|
     t.text     "content"
@@ -70,10 +82,16 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.datetime "updated_at"
   end
 
+  add_index "news", ["course_id"], :name => "index_news_on_course_id"
+  add_index "news", ["user_id"], :name => "index_news_on_user_id"
+
   create_table "participants", :force => true do |t|
     t.integer "user_id"
     t.integer "course_id"
   end
+
+  add_index "participants", ["course_id"], :name => "index_participants_on_course_id"
+  add_index "participants", ["user_id"], :name => "index_participants_on_user_id"
 
   create_table "questions", :force => true do |t|
     t.integer "kind"
@@ -81,6 +99,8 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.integer "test_id"
     t.integer "weight"
   end
+
+  add_index "questions", ["test_id"], :name => "index_questions_on_test_id"
 
   create_table "results", :force => true do |t|
     t.integer  "test_id"
@@ -90,6 +110,9 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  add_index "results", ["test_id"], :name => "index_results_on_test_id"
+  add_index "results", ["user_id"], :name => "index_results_on_user_id"
 
   create_table "roles", :force => true do |t|
     t.string "name"
@@ -122,6 +145,8 @@ ActiveRecord::Schema.define(:version => 20100316205904) do
     t.integer  "duration"
     t.integer  "weight"
   end
+
+  add_index "tests", ["course_id"], :name => "index_tests_on_course_id"
 
   create_table "users", :force => true do |t|
     t.string   "username"

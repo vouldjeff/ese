@@ -1,5 +1,5 @@
 <div class="answer">
-  <input type="hidden" name="test[question_attributes][][id]" value="<%= answer.question.id %>"/>
+  <input type="hidden" name="test[question_attributes][][id]" value="<%= answer.question_id %>"/>
   <% fields_for "test[question_attributes][][answer_attributes][]", answer do |f| %>
   		<p class="input-form">
   			<% if answer.new_record? %>
@@ -10,7 +10,7 @@
           <%= f.hidden_field :should_destroy, :index => nil, :class => 'should_destroy' %>
       <% end %>
   		</p>
-  
+
       <p class="input-form">
         <%= f.label :content, t('content') + ": " %>
         <%= f.text_field :content, :index => nil %>
@@ -18,10 +18,10 @@
 
       <p class="input-form">
         <%= f.label :correct, t('correct') + ": " %>
-        <% if answer.question.kind == 1 %>
+        <% if answer.kind == 1 %>
             <input type="checkbox" name="test[question_attributes][][answer_attributes][][correct]" value="1"
             <% if answer.correct? %> checked="true"
-                   <% end %>onclick="uncheck_all_other('answers_<%= answer.question.id %>', this);" class="checkbox-type-1">
+                   <% end %>onclick="uncheck_all_other('answers_<%= answer.question_id %>', this);" class="checkbox-type-1">
         <% else %>
             <input type="checkbox" name="test[question_attributes][][answer_attributes][][correct]" value="1"
             <% if answer.correct? %> checked

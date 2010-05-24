@@ -1,11 +1,11 @@
 <% title t('calendar') %>
 
 <% if permitted_to? :new, Event.new %>
-	<% menu link_to(t('new_event'), event_new_path()) %>
+	<% nav icon_link(t('new_event'), event_new_path(), 'new') %>
 <% end %>
 
 <%= stylesheet_link_merged :calendar %>
-<%= javascript_link_merged :calendar %>
+<%= javascript_include_merged :calendar %>
 
 <br />
 

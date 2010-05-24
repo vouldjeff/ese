@@ -33,4 +33,9 @@ module LayoutHelper
   	@content_for_menu = Array.new if @content_for_menu.nil?
   	@content_for_menu << menu.to_s
   end
+
+  def nav(link)
+    @content_for_nav = Array.new if @content_for_nav.nil?
+    @content_for_nav << link.to_s
+  end
 end

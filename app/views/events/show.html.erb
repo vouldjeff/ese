@@ -1,15 +1,14 @@
 <% title @event.name %>
 <% if permitted_to? :edit, @event %>
-	<% menu link_to(t('edit'), event_other_path(:action => 'edit')) %>
+	<% nav icon_link(t('edit'), event_other_path(:action => 'edit'), 'edit') %>
 <% end %>
 <% if permitted_to? :destroy, @event %>
-	<% menu link_to(t('destroy'), event_other_path(:action => 'destroy'), :confirm => t('a_u_s'), :method => :delete) %>
+	<% nav icon_link(t('destroy'), event_other_path(:action => 'destroy'), 'destroy', t('a_u_s')) %>
 <% end %>
+<% nav icon_link(t('see_on_calendar'), calendar_path(), 'calendar')  %>
 
 <div class="title-info">
   <%= t('from') %> <span><%= format_datetime @event.start_at.utc %></span> <%= t('to') %> <span><%= format_datetime @event.end_at.utc %></span>
-  <br />
-  <%= link_to t('see_on_calendar'), calendar_path() %>
 </div>
 
 <div class="content">

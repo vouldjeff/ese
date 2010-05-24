@@ -13,7 +13,7 @@ class User < ActiveRecord::Base
     @role_symbols ||= roles.map{ |r| r.name.underscore.to_sym }
   end
 
-  def is_techer?
+  def is_teacher?
    @is_teacher ||= !role_symbols().index(:teacher).nil?
   end
 end

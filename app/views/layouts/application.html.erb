@@ -71,6 +71,17 @@
       <h1><%= h yield(:title) %></h1>
   <% end %>
 
+  <% unless yield(:nav).nil? %>
+        <div class="more-links-container">
+            <div class="more-links">
+    		    <% yield(:nav).each do |item| %>
+    			    <%= item %>
+    			<% end %>
+            </div>
+        </div>
+        <p style="clear: both;"></p>
+  <% end %>
+
   <%= yield %>
 </div>
 </div>

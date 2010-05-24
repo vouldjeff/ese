@@ -1,6 +1,6 @@
 <% title t('courses') %>
 <% if permitted_to? :new, Course.new %>
-  <% menu link_to(t('new_course'), course_new_path) %>
+  <% nav icon_link(t('new_course'), course_new_path, 'new') %>
 <% end %>
 
 <% if @courses.count == 0 %>

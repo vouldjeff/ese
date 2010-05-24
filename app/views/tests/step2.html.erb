@@ -2,9 +2,9 @@
 
 <% form_for @test, :url => { :action => "step2_update" } do |f| %>
     <p class="input-form">
-    <div id="questions">
-      <%= render :partial => "question", :collection => @test.questions %>
-    </div>
+        <div id="questions">
+          <%= render :partial => "question", :collection => @test.questions %>
+        </div>
     <%= add_new_child(t('new_question'), 'questions', 'question', Question.new(:test => @test)) %>
     </p>
     <p class="input-form">

@@ -6,16 +6,16 @@ module ApplicationHelper
   require 'lib/ese_cloth'
 
   def add_new_child(text, id, partial, object)
-    link_to_function text, :class => 'remove-link' do |page|
+    link_to_function "<span>" + text + "</span>", :class => 'icon-link icon-sprite-new' do |page|
       page.insert_html :bottom, id, :partial => partial, :object => object
     end
   end
 
   def remove_child(type, what = false)
     unless what
-      link_to_function t('destroy'), "this.up('.#{type}').remove()", :class => 'remove-link'
+      link_to_function "<span>" + t('destroy') + "</span>", "this.up('.#{type}').remove()", :class => 'icon-link icon-sprite-destroy'
     else
-      link_to_function t('destroy'), "mark_for_destroy(this, '#{type}')", :class => 'remove-link'
+      link_to_function "<span>" + t('destroy') + "</span>", "mark_for_destroy(this, '#{type}')", :class => 'icon-link icon-sprite-destroy'
     end
   end
 
@@ -35,6 +35,10 @@ module ApplicationHelper
   
   def format_datetime(time)
     time.strftime("%H:%M#{t('abbr_hours')} %d.%m.%Y#{t('abbr_year')}")
+  end
+
+  def icon_link(text, link, name, confirm = nil)
+    link_to("<span>" + text + "</span>", link, :class => 'icon-link icon-sprite-' + name, :confirm => confirm)
   end
   
   private

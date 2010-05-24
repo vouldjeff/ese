@@ -279,6 +279,7 @@ bg:
       question: "Въпрос"
       user: "Потребител"
       user_session: "Вход"
+      event: "Събитие"
     attributes:
       course:
         name: "Името"
@@ -301,7 +302,9 @@ bg:
       user_session:
         username: "Потребителското име"
         password: "Паролата"
-    
+      event:
+        name: "Името"
+        description: "Описанието"
     errors:
       template:
         header:

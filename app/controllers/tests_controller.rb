@@ -1,25 +1,16 @@
 class TestsController < ApplicationController
   before_filter :login_required
   before_filter :load_course_object
+  before_filter :load_test_object, :only => [:edit, :step2, :step3, :doit]
+  before_filter :load_test_object_with_results, :only => [:show]
   before_filter :change_language
   filter_access_to :all, :attribute_check => true
 
   def show
-
-    @test = Test.find(params[:id], :joins =>
-            ["LEFT OUTER JOIN results ON results.test_id = tests.id",
-            "LEFT OUTER JOIN questions ON questions.test_id = tests.id",
-            "LEFT OUTER JOIN answers ON answers.question_id = questions.id",
-            "LEFT OUTER JOIN courses ON courses.id = tests.id"]
-    )
-
-    @vls = Array.new
-    unless @test.results.nil?
-      if @template.is_teacher?
-        @vls = @test.results.to_a
-      elsif !@test.results.to_a.collect{ |e| e if e.user_id = current_user }.nil?
-        @vls = @test.results.to_a.collect{ |e| e if e.user_id = current_user }
-      end
+    if current_user.is_teacher?
+      @results = @test.results
+    elsif
+      @results = Result.all(:conditions => {:test_id => current_user.id, :test_id => @test.id}, :include => [:user, {:test => {:questions => :answers}}])
     end
   end
 
@@ -81,50 +72,68 @@ class TestsController < ApplicationController
 
   def doit
     #time checking
-    unless (@test.active_from.utc <= Time.now.utc and Time.now.utc <= @test.active_to.utc - 60) or @test.enabled != true
-      flash[:error] = t('test_not_active')
-      if params[:questions] != nil
-        Result.create(:test => @test, :user => current_user, :result => -1, :answers => {})
-        session["start_#{@test.id}"] = nil
+    unless ((@test.active_from.utc)..(@test.active_to.utc - 60)).include?(Time.now.utc) or !@test.enabled
+      unless params[:questions].nil?
+        @result = Result.create(:answers => {})
         flash[:error] = t('late')
+      else
+        lash[:error] = t('test_not_active')
       end
 
+      session["start_#{@test.id}"] = nil
+      
       redirect_to test_view_path()
       return
     end
 
     #already made check
-    if Result.find(:all, :conditions => { :test_id => @test.id, :user_id => current_user.id }).length > 0
-      if @test.can_correct != true
+    count = Result.count(:all, :conditions => { :test_id => @test.id, :user_id => current_user.id })
+    if count > 0
+      if !@test.can_correct?
         flash[:error] = t('made_this_test')
         redirect_to test_view_path()
-      elsif Result.find(:all, :conditions => { :test_id => @test.id, :user_id => current_user.id }).length > 2
+      elsif count > 2
         flash[:error] = t('made_this_test_over')
         redirect_to test_view_path()
       end
     end
 
     #calculate end time for session or calculate result
-    if params[:questions] == nil
+    if params[:questions].nil?
       session["start_#{@test.id}"] = Time.now.utc
       return
     else
-      if session["start_#{@test.id}"] + (@test.duration * 60) >= @test.active_to
+      real_end = session["start_#{@test.id}"] + (@test.duration * 60)
+      if real_end >= @test.active_to
         endtime = @test.active_to + 60
       else
-        endtime = session["start_#{@test.id}"] + (@test.duration * 60) + 60
+        endtime = real_end + 60
       end
 
       if endtime < Time.now.utc
         flash[:error] = t('late')
-        Result.create(:test => @test, :user => current_user, :result => -1, :answers => {})
-        session["start_#{@test.id}"] = nil
+        @result = Result.create(:answers => {})
       else
-        Result.create(:test => @test, :user => current_user, :result => calculate_result(params[:questions], @test.questions), :answers => params[:questions])
-        session["start_#{@test.id}"] = nil
+        @result = Result.create(:answers => params[:questions])
       end
+
+      session["start_#{@test.id}"] = nil
+
+      @result.user = current_user
+      @result.test = @test
+      @result.result = @result.calculate
+      @result.save!
     end
 
     redirect_to test_view_path()
+  end
+
+  private
+  def load_test_object
+    @test = Test.find(params[:id], :include => [{:questions => :answers}])
+  end
+
+  def load_test_object_with_results
+    @test = Test.find(params[:id], :include => [{:results => [:user, {:test => {:questions => :answers}}]}, {:questions => :answers}])
   end
 end
