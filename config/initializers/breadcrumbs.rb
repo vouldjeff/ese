@@ -6,7 +6,7 @@ Breadcrumb.configure do
   crumb :courses, '#{@course.name}', :course_view_path
   crumb :courses_, '#{@material.course.name}', :course_view_path, '@material.course'
   crumb :courses__, '#{@test.course.name}', :course_view_path, '@test.course'
-  crumb :courses___, '#{Course.find(params[:course_id]).name}', :course_view_path, 'Course.find(params[:course_id])'
+  crumb :courses___, '#{@course.name}', :course_view_path, '@course'
   crumb :coursess, '#{@event.course.name}', :course_view_path, '@event.course'
   crumb :course_new, I18n.t('new_course'), :course_new_path
   crumb :course_edit, I18n.t('edit_course') + ' - #{@course.name}', :course_other_path, :params => { :action => 'edit' }
