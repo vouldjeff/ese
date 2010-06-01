@@ -16,4 +16,8 @@ class User < ActiveRecord::Base
   def is_teacher?
    @is_teacher ||= !role_symbols().index(:teacher).nil?
   end
+
+  def is_admin?
+   @is_admin ||= !role_symbols().index(:admin).nil?
+  end
 end

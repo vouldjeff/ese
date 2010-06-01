@@ -4,11 +4,7 @@ class CoursesController < ApplicationController
   filter_resource_access
 
   def index
-    @courses = current_user.courses
-
-    current_user.roles.map do |role|
-      @courses = Course.all if role[:id] == 1
-    end
+    @courses = current_user.is_admin? ? Course.all : current_user.courses
   end
 
   def show

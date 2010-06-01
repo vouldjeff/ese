@@ -2,16 +2,16 @@ body {background-color: #FFF; font-family: "Helvetica Neue", Arial, sans-serif; 
 a img {border: none}
 .latex {display: inline; overflow: hidden; padding: 0 5px}
 .content {margin-top: 10px}
-a:link, a:visited, a:active {color: #2266BB; text-decoration: none}
+a:link, a:visited, a:active {color: #2266BB; text-decoration: none; outline: none}
 a:hover {text-decoration: underline}
 #container {width: 960px; margin: 0 auto; padding: 0px; padding-bottom: 30px}
 #inner {padding: 0 10px}
 #header {height: 24px; width: 100%; overflow: hidden; background: url(../images/logo.gif) no-repeat 1px 5px; padding-top: 9px; margin-bottom: 10px; color: #2266bb}
-#crumbs {margin-left: 80px; margin-top: 4px; float: left; font-size: 13px}
+#crumbs {margin-left: 80px; margin-top: 4px; float: left; font-size: 13px; max-width: 700px}
 #crumbs a:hover {color:#222; text-decoration: none}
 #crumbs span {color: #bbccdd}
-#flashes {float: right; height: 33px; margin-top: -43px; margin-right: 20px; position: relative; right: 0; text-align: right; top: 0}
-#flash_notice, #flash_error {border: solid 3px #bbccdd; display: inline-block; padding: 9px 10px; padding-top: 10px; border-top: 0px; border-bottom: 0px}
+#flashes {}
+#flash_notice, #flash_error {border: solid 3px #bbccdd; display: block; padding: 9px 10px; padding-top: 10px; position: fixed; top: 31px; right: 40px}
 #flash_notice {background-color: #CFC}
 #flash_error {background-color: #FCC}
 .delimiter {background: url(../images/splitter-bg.png) repeat-x scroll left center}
@@ -79,7 +79,7 @@ input#user_openid_identifier, input#user_session_openid_identifier {background: 
 .more-info {display: block; margin-top: -10px}
 .attachment_list span a, #pending_files li a span {font-size: 11px}
 #pending_files li a span {color: #2266BB !important}
-.attachment_list span a:hover, #pending_files li a span:hover, .remove-link:hover {color:#222; background:#EEF4FF; text-decoration: none; font-weight: bold; font-size: 12px}
+.attachment_list span a:hover, #pending_files li a span:hover, .remove-link:hover {color:#222; background:#EEF4FF; text-decoration: none}
 .attachment_list #pending_files {list-style: none; padding: 0}
 .attachment_list li {list-style: none; padding: 0 0 0.5em 21px; background: url('/images/attachment.png') no-repeat 0 2px}
 .attachment_list li #remove {margin-left: 1em}
@@ -87,3 +87,14 @@ input#user_openid_identifier, input#user_session_openid_identifier {background: 
 .title-info {color: #888}
 .title-info span {font-weight: bold; color: #333}
 #table {padding: 10px 0}
+.more-links-container {clear: both; overflow: hidden}
+.more-links {float: right; text-align: right}
+.icon-link span {background: #fff; padding-left: 3px}
+.icon-link span:hover {color:#222; background:#EEF4FF}
+.more-links .icon-link {margin-left: 10px}
+.icon-link {background: url('/images/icons.png') no-repeat; height: 16px; padding-left: 16px}
+.icon-sprite-calendar {background-position: -64px 0}
+.icon-sprite-new {}
+.icon-sprite-destroy {background-position: -32px 0}
+.icon-sprite-edit {background-position: -48px 0}
+.icon-sprite-participants {background-position: -80px 0}

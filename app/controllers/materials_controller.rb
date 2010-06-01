@@ -5,7 +5,6 @@ class MaterialsController < ApplicationController
   filter_resource_access
 
   def show
-    @l = @material.course.lang
   end
 
   def new

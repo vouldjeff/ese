@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_filter :login_required
+  before_filter :load_test_new, :only => [:new, :create]
   before_filter :load_course_object
   before_filter :load_test_object, :only => [:edit, :step2, :step3, :doit]
   before_filter :load_test_object_with_results, :only => [:show]
@@ -7,20 +8,24 @@ class TestsController < ApplicationController
   filter_access_to :all, :attribute_check => true
 
   def show
-    if current_user.is_teacher?
+    if current_user.is_teacher? or current_user.is_admin?
       @results = @test.results
     elsif
-      @results = Result.all(:conditions => {:test_id => current_user.id, :test_id => @test.id}, :include => [:user, {:test => {:questions => :answers}}])
+      @results = Result.all(:conditions => {:user_id => current_user.id, :test_id => @test.id}, :include => [:user, {:test => {:questions => :answers}}])
     end
+    
+    @user_result = Result.last(:select => "result", :conditions => {:user_id => current_user.id, :test_id => @test.id})
   end
 
   def new
+    @test = Test.new
   end
 
   def edit
   end
 
   def create
+    @test.update_attributes(params[:test])
     @test.course = Course.find(params[:course_id])
     if @test.save
       flash[:notice] = t('first_step_acc')
@@ -131,6 +136,10 @@ class TestsController < ApplicationController
   private
   def load_test_object
     @test = Test.find(params[:id], :include => [{:questions => :answers}])
+  end
+
+  def load_test_new
+    @test = Test.new
   end
 
   def load_test_object_with_results
