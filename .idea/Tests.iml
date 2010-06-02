@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="RUBY_MODULE" version="4">
+  <component name="FacetManager">
+    <facet type="RailsFacetType" name="Ruby on Rails">
+      <configuration>
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_SUPPORT_REMOVED" VALUE="false" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_TESTS_SOURCES_PATCHED" VALUE="true" />
+        <RAILS_FACET_CONFIG_ID NAME="RAILS_FACET_APPLICATION_ROOT" VALUE="$MODULE_DIR$" />
+      </configuration>
+    </facet>
+  </component>
+  <component name="GemRequirementsHolder" version="2">
+    <requirement>
+      <requirement>
+        <dependency name="actionpack" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/declarative_authorization/test/test_helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="activerecord" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/declarative_authorization/test/test_helper.rb" />
+      <source from="vendor/plugins/friendly_id/test/test_helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="activesupport" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/declarative_authorization/test/test_helper.rb" />
+      <source from="vendor/plugins/friendly_id/test/test_helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="echoe" version="3.0.1" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/redcloth/Rakefile" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="friendly_id" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/friendly_id/extras/template-gem.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="haml" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/friendly_id/extras/template-gem.rb" />
+      <source from="vendor/plugins/friendly_id/extras/template-plugin.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="jferris-mocha" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/thoughtbot-paperclip-51637fe/test/helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="mysql" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="config/database.yml" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rails" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/declarative_authorization/test/test_helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="rspec" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/crumble/spec/spec_helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="sqlite3-ruby" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/thoughtbot-paperclip-51637fe/test/helper.rb" />
+    </requirement>
+    <requirement>
+      <requirement>
+        <dependency name="will_paginate" version="0" bound="GREATER_OR_EQUAL" />
+      </requirement>
+      <source from="vendor/plugins/friendly_id/extras/template-gem.rb" />
+      <source from="vendor/plugins/friendly_id/extras/template-plugin.rb" />
+    </requirement>
+  </component>
+  <component name="NewModuleRootManager">
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/test" isTestSource="true" />
+      <excludeFolder url="file://$MODULE_DIR$/tmp" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
+

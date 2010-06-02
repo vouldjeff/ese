@@ -1,0 +1,15 @@
+development:
+  adapter: mysql
+  database: tests
+  pool: 5
+  encoding: utf8
+  username: root
+  password: mitence
+
+production:
+  adapter: mysql
+  database: tests
+  pool: 5
+  encoding: utf8
+  username: root
+  password: mitence
